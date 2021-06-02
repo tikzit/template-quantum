@@ -1,0 +1,28 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=none] (1) at (-1.75, 0.5) {};
+		\node [style=none] (7) at (-1.75, -1.5) {};
+		\node [style=Z dot] (13) at (-1, 0.5) {};
+		\node [style=X dot] (15) at (-1, 2) {};
+		\node [style=none] (16) at (3.75, -1.5) {};
+		\node [style=none] (20) at (-1.75, 2) {};
+		\node [style=X phase dot] (26) at (1.25, 2) {$a\pi$};
+		\node [style=X phase dot] (27) at (1.25, 0.5) {$b\pi$};
+		\node [style=hadamard] (28) at (0, 0.5) {};
+		\node [style=Z phase dot] (29) at (1.25, -1.5) {$b\pi$};
+		\node [style=X phase dot] (30) at (2.75, -1.5) {$a\pi$};
+		\node [style=none] (35) at (4.25, -0.5) {};
+		\node [style=none] (36) at (-4.5, -0.5) {};
+		\node [style=none] (37) at (-3.75, 1.375) {Alice};
+		\node [style=none] (38) at (-3.75, -1.5) {Bob};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (13) to (15);
+		\draw (1.center) to (28);
+		\draw (28) to (27);
+		\draw (20.center) to (26);
+		\draw (7.center) to (16.center);
+		\draw [dashed] (35.center) to (36.center);
+		\draw [bend right=90, looseness=1.75] (1.center) to (7.center);
+	\end{pgfonlayer}
+\end{tikzpicture}

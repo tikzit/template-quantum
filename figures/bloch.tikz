@@ -1,0 +1,45 @@
+\begin{tikzpicture}[scale=1.4]
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=none] (0) at (4.25, 1) {$|\psi\>$};
+		\node [style=none] (2) at (0, 3) {};
+		\node [style=none] (3) at (0, -3) {};
+		\node [style=none] (4) at (2.75, 1.25) {};
+		\node [style=none] (5) at (-2.75, 1.25) {};
+		\node [style=none] (6) at (-3, 0) {};
+		\node [style=none] (7) at (3, 0) {};
+		\node [style=none] (8) at (-2.75, 1.25) {};
+		\node [style=none] (9) at (2.75, 1.25) {};
+		\node [style=none] (10) at (-3, 0) {};
+		\node [style=none] (11) at (3, 0) {};
+		\node [style=none] (12) at (0, -3) {};
+		\node [style=none] (13) at (0, 3) {};
+		\node [style=none] (14) at (0, 0) {};
+		\node [style=none] (15) at (1.7, 0.57) {};
+		\node [style=none] (16) at (1.75, -0.75) {};
+		\node [style=none] (17) at (0, 3.5) {$|0\>$};
+		\node [style=none] (19) at (0, -3.5) {$|1\>$};
+		\node [style=none] (21) at (2.5, -0.75) {$\alpha$};
+		\node [style=none] (22) at (1.5, 2.25) {$\theta$};
+		\node [style=small black dot] (23) at (0, -3) {};
+		\node [style=none] (24) at (0, 3) {};
+		\node [style=small black dot] (25) at (0, 3) {};
+		\node [style=small black dot] (26) at (1.745, 0.6) {};
+		\node [style=none] (27) at (2, 1) {};
+		\node [style=none] (28) at (3.75, 1.25) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw [style=swap, bend left=90, looseness=1.72] (2.center) to (3.center);
+		\draw [style=swap, bend right=90, looseness=1.72] (2.center) to (3.center);
+		\draw [style=dashed, {gray!40!white}, bend right=90] (2.center) to (3.center);
+		\draw [style=dashed, bend left=90, looseness=0.50] (5.center) to (4.center);
+		\draw [style=dashed, {gray!40!white}, bend left=90, looseness=0.50] (6.center) to (7.center);
+		\draw [style=swap, bend right=90, looseness=0.50] (8.center) to (9.center);
+		\draw [style=swap, bend right=90, looseness=0.50] (10.center) to (11.center);
+		\draw [style=swap, bend left=90] (13.center) to (12.center);
+		\draw [style=dashed] (14.center) to (15.center);
+		\draw [style=dashed] (14.center) to (11.center);
+		\draw [style=dashed] (14.center) to (16.center);
+		\draw [style=dashed] (13.center) to (14.center);
+		\draw [style=pointer edge, in=45, out=150] (28.center) to (27.center);
+	\end{pgfonlayer}
+\end{tikzpicture}

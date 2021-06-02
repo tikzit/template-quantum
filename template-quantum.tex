@@ -1,10 +1,22 @@
 \documentclass{article}
+\usepackage[margin=3cm]{geometry}
 \usepackage{tikzit}
 \input{quantum.tikzstyles}
 \input{quantum.tikzdefs}
 
+\title{TikZiT Quantum Template}
+
 \begin{document}
 
-Test.
+\maketitle
+
+The standard way to use files produced by TikZiT is to place the \texttt{.tikz} files in the \texttt{figures} subdirectory, and include them via the \texttt{\textbackslash{}tikzfig} macro provided by \texttt{tikzit.sty}. This is essentially a wrapper for \texttt{\textbackslash{}input}. This macro expects the filename without an extension or \texttt{figures/}, so e.g. \texttt{\textbackslash{}tikzfig\{circ\}} will input the file \texttt{figures/circ.tikz}. You can also use \texttt{\textbackslash{}ctikzfig} as a shorthand for \texttt{\textbackslash{}tikzfig} wrapped in the \texttt{center} environment.
+
+This quantum template contains TikZ styles to make quantum circuits:
+\ctikzfig{circ}
+ZX-diagrams:
+\ctikzfig{zx}
+and other handy stuff, like the Bloch sphere:
+\ctikzfig{bloch}
 
 \end{document}

@@ -1,26 +1,25 @@
-require 'listen'
+# This file lets you pre-build any tikz figures appearing the the papers
+# as PDF files, either for its own sake or to speed up compilation using
+# the \tikzitdraft option in tikzit.sty.
 
-mainfile = 'main'
-fnames = %W(
-  abstract.tex
-  optimisation.tex
-  stab2.tex
-  circuit.tex
-  phase-poly.tex
-  stabiliser.tex
-  correctness.tex
-  main.tex
-  preamble.tex
-  synth.tex
-  intro.tex
-  mbqc.tex
-  simulation.tex
-  zx.tex
+# the name of the main file, with no extension
+main_file = "template-quantum"
+
+# the names of any files to scan for figures, with extension, one per line
+file_names = %W(
+  template-quantum.tex
 )
-tikzstyles = "circuits"
 
+# the name of your tikzstyles/tikzdefs file, no extension
+tikzstyles = "quantum"
+
+
+######################################################################
+require "listen"
+
+# compile a list of figures based on file_names
 figures = []
-fnames.each do |fname|
+file_names.each do |fname|
   f = open(fname)
   open(f).each_line do |line|
     line.scan(/tikzfig\{([^\}]*)\}/).each do |tikz|
@@ -30,25 +29,30 @@ fnames.each do |fname|
   f.close
 end
 
-tikzfiles = FileList['figures/*.tikz'].pathmap('%n')
+# get a list of all the tikz figures in the figures/ dir
+tikzfiles = FileList["figures/*.tikz"].pathmap("%n")
 exists = {}
+
+# filter out figures that don't actually exist (e.g. placeholders in tex files)
 tikzfiles.each { |f| exists[f] = true }
 outfiles = figures.map do |f|
   "cache/#{f}.pdf" if exists.include? f
 end.compact
 
-######################################################################
-
-task :figs => [:prep, :pfigs]
+task :default => [:prep, :pfigs]
 
 task :clean do
   rm_r "cache"
 end
 
+task :listfigs do
+  puts outfiles
+end
+
 task :listen do
-  listener = Listen.to('./figures') do
+  listener = Listen.to("./figures") do
     puts "Rebuilding figures..."
-    t = Rake::Task['all']
+    t = Rake::Task["all"]
     t.invoke
     t.reenable
     t.all_prerequisite_tasks.each { |t1| t1.reenable }
@@ -62,12 +66,7 @@ end
 task :prep => ["cache", "cache/tikzit.sty"]
 directory "cache"
 file "cache/tikzit.sty" => "tikzit.sty" do
-  sh "cp tikzit.sty cache/"
-end
-
-
-file "#{mainfile}.pdf" => "#{mainfile}.tex" do
-  sh "latexmk -synctex=1 -pdf #{mainfile}.tex"
+  cp "tikzit.sty", "cache/tikzit.sty"
 end
 
 multitask :pfigs => outfiles
@@ -77,8 +76,8 @@ tikzfiles.each do |fig|
     tex = <<~TEX
     \\documentclass{article}
     \\usepackage{xr}
-    \\externaldocument{../#{mainfile}}
-    \\externaldocument{../Output/#{mainfile}}
+    \\externaldocument{../#{main_file}}
+    \\externaldocument{../Output/#{main_file}}
     \\usepackage{tikzit}
     \\input{../#{tikzstyles}.tikzstyles}
     \\input{../#{tikzstyles}.tikzdefs}
@@ -90,7 +89,7 @@ tikzfiles.each do |fig|
     \\end{document}
     TEX
 
-    File.open("cache/#{fig}.tex", 'w') { |f| f.write(tex) }
-    sh "(cd cache; pdflatex --interaction=nonstopmode #{fig}.tex)"
+    File.open("cache/#{fig}.tex", "w") { |f| f.write(tex) }
+    system("pdflatex --interaction=nonstopmode \"#{fig}.tex\"", :chdir=>"cache")
   end
 end

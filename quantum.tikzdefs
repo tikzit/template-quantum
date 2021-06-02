@@ -1,0 +1,133 @@
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{hyperref}
+\usepackage{color}
+\definecolor{zxredfg}{RGB}{100,0,0}
+\definecolor{zxgreenfg}{RGB}{0,50,0}
+\usepackage{titlesec}
+\titleformat{\section}
+{\color{zxgreenfg}\normalfont\Large\bfseries}
+{\color{zxgreenfg}\thesection}{1em}{}
+\titleformat{\subsection}
+{\color{zxgreenfg}\normalfont\large\bfseries}
+{\color{zxgreenfg}\thesubsection}{1em}{}
+\newcommand{\dfnoindex}[1]{\textbf{\color{zxredfg} #1}}
+\newcommand{\df}[1]{\dfnoindex{#1}} % TODO: add indexing here
+\usepackage{xspace}
+\usepackage{bm}
+
+\newcommand{\zsp}[3]{Z{}_{#1}^{#2}[\textstyle{#3}]}
+\newcommand{\xsp}[3]{X{}_{#1}^{#2}[\textstyle{#3}]}
+\newcommand{\ket}[1]{\ensuremath{|#1\rangle\xspace}}
+\newcommand{\bra}[1]{\ensuremath{\langle #1|\xspace}}
+\newcommand{\braket}[2]{\ensuremath{\langle #1|#2\rangle\xspace}}
+\newcommand{\ketbra}[2]{\ensuremath{|#1\rangle\!\langle #2|\xspace}}
+\def\<{\langle}
+\def\>{\rangle}
+
+\newcommand\D{\textrm{\footnotesize $D$}\xspace}
+\newcommand\sqrtD{\textrm{\footnotesize $\sqrt{D}$}\xspace}
+\newcommand\sqrttwo{\textrm{\footnotesize $\sqrt{2}$}\xspace}
+\newcommand\oneoverD{\ensuremath{{\textstyle{\frac{1}{D}}}}\xspace}
+\newcommand\oneoverDprime{\ensuremath{{\textstyle{\frac{1}{D'}}}}\xspace}
+\newcommand\oneoversqrtD{\ensuremath{{\textstyle{\frac{1}{\sqrt{D}}}}}\xspace}
+\newcommand\oneoversqrttwo{\ensuremath{{\textstyle{\frac{1}{\sqrt{2}}}}}\xspace}
+\newcommand\oneovertwo{\ensuremath{{\textstyle{\frac{1}{2}}}}\xspace}
+
+\newcommand{\CNOT}{\text{CNOT}\xspace}
+\newcommand{\CNOTs}{\text{CNOTs}\xspace}
+\newcommand{\CZ}{\text{CZ}\xspace}
+\newcommand{\CZs}{\text{CZs}\xspace}
+
+%%%% JOHN'S MACROS
+
+\newcommand{\intf}[1]{\left\llbracket #1 \right\rrbracket} % interpretation functor
+
+\newcommand{\abs}[1]{\ensuremath{|#1|}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\id}{\text{id}}
+\newcommand{\tr}{\text{Tr}}
+
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{fadings}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{decorations.markings}
+
+\newcommand{\zxcalculus}{ZX-calculus\xspace}
+\newcommand{\zxdiagram}{ZX-diagram\xspace}
+\newcommand{\zxdiagrams}{ZX-diagrams\xspace}
+
+\newcommand{\zxspider}{\ensuremath{(\bm{sp})}\xspace}
+\newcommand{\zxpi}{\ensuremath{(\bm \pi)}\xspace}
+\newcommand{\zxcolor}{\ensuremath{(\bm{cc})}\xspace}
+\newcommand{\zxeuler}{\ensuremath{(\bm{eu})}\xspace}
+\newcommand{\zxid}{\ensuremath{(\bm{id})}\xspace}
+\newcommand{\zxhh}{\ensuremath{(\bm{hh})}\xspace}
+\newcommand{\zxsc}{\ensuremath{(\bm{sc})}\xspace}
+
+
+\newcommand{\comp}[1]{\overline{#1}}
+
+\newcommand{\SpiderRule}{\ensuremath{(\hyperref[fig:zx-rules]{\bm f})}\xspace}
+\newcommand{\FusionRule}{\SpiderRule}
+\newcommand{\PiRule}{\ensuremath{(\hyperref[fig:zx-rules]{\bm \pi})}\xspace}
+\newcommand{\CopyRule}{\ensuremath{(\hyperref[fig:zx-rules]{\bm c})}\xspace}
+\newcommand{\HadamardRule}{\ensuremath{(\hyperref[fig:zx-rules]{\bm{h}})}\xspace}
+\newcommand{\IdRule}{\ensuremath{(\hyperref[fig:zx-rules]{\bm{id}})}\xspace}
+\newcommand{\HHRule}{\ensuremath{(\hyperref[fig:zx-rules]{\bm{hh}})}\xspace}
+\newcommand{\BialgRule}{\ensuremath{(\hyperref[fig:zx-rules]{\bm b})}\xspace}
+\newcommand{\StrongCompRule}{\BialgRule}
+%\newcommand{\PiCopyRule}{\ensuremath{(\hyperref[fig:zx-rules]{\bm{\pi c}})}\xspace}
+\newcommand{\HopfRule}{\eqref{eq:hopf-rule}\xspace}
+
+%% small versions
+\newcommand{\picopyrule}{{\footnotesize\PiCopyRule}}
+\newcommand{\strongcomprule}{{\footnotesize\StrongCompRule}}
+\newcommand{\bialgrule}{{\footnotesize\BialgRule}}
+\newcommand{\idrule}{{\footnotesize\IdRule}}
+\newcommand{\hadamardrule}{{\footnotesize\HadamardRule}}
+\newcommand{\hhrule}{\footnotesize\HHRule}
+\newcommand{\copyrule}{\footnotesize\CopyRule}
+\newcommand{\pirule}{\footnotesize\PiRule}
+\newcommand{\spiderrule}{\footnotesize\SpiderRule}
+\newcommand{\fusionrule}{\footnotesize\SpiderRule}
+\newcommand{\hopfrule}{\footnotesize\HopfRule}
+
+%Make node for measuring in circuit
+\tikzset{meter/.append style={draw, inner sep=5, rectangle, font=\vphantom{A}, minimum width=20, line width=.4,
+ path picture={\draw[black] ([shift={(.1,.2)}]path picture bounding box.south west) to[bend left=70] ([shift={(-.1,.2)}]path picture bounding box.south east);\draw[black,-latex] ([shift={(0,.1)}]path picture bounding box.south) -- ([shift={(.25,-.05)}]path picture bounding box.north);}}}
+
+\newcommand{\namedeq}[1]{\,\begin{tikzpicture}
+  \begin{pgfonlayer}{nodelayer}
+    \node [style=none] at (0, 0.75) {\footnotesize $#1$};
+    \node [style=none] at (0, 0) {$=$};
+  \end{pgfonlayer}
+\end{tikzpicture}\,}
+\newcommand{\namedimplies}[1]{\,\begin{tikzpicture}
+  \begin{pgfonlayer}{nodelayer}
+    \node [style=none] at (0, 0.75) {\footnotesize $#1$};
+    \node [style=none] at (0, 0) {$\implies$};
+  \end{pgfonlayer}
+\end{tikzpicture}\,}
+\newcommand{\namedscalareq}[1]{\,\begin{tikzpicture}
+  \begin{pgfonlayer}{nodelayer}
+    \node [style=none] at (0, 0.75) {\footnotesize $#1$};
+    \node [style=none] at (0, 0) {$\scalareq$};
+  \end{pgfonlayer}
+\end{tikzpicture}\,}
+\newcommand{\namedmapsto}[1]{\,\begin{tikzpicture}
+  \begin{pgfonlayer}{nodelayer}
+    \node [style=none] at (0, 0.75) {\footnotesize $#1$};
+    \node [style=none] at (0, 0) {$\mapsto$};
+  \end{pgfonlayer}
+\end{tikzpicture}\,}
+
+\newcommand{\smallref}[1]{%
+    {\footnotesize\eqref{#1}}%
+}
+
+\newcommand{\scalareq}{\ensuremath{\approx}\xspace}
+
+\newcommand{\emptydiag}{\,\tikz{\node[style=empty diagram] (x) {};}\,}
+

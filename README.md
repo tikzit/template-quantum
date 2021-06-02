@@ -1,6 +1,6 @@
 To use this template:
 
-1. Get TikZiT (https://tikzit.github.io)
+1. Get [TikZiT](https://tikzit.github.io)
 2. Download this whole folder as a ZIP file [here](https://github.com/tikzit/template-quantum/archive/master.zip) and unzip it somewhere.
 3. Load the included `.tikzstyles` file by clicking the folder icon in the top-right corner of TikZiT.
 

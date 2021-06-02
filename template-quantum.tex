@@ -1,22 +1,40 @@
 \documentclass{article}
-\usepackage[margin=3cm]{geometry}
-\usepackage{tikzit}
+\usepackage[margin=2cm]{geometry}
+\usepackage{hyperref}
+
+% "draft" enables (manual) caching of figures for faster builds
+\usepackage[draft]{tikzit}
 \input{quantum.tikzstyles}
 \input{quantum.tikzdefs}
 
 \title{TikZiT Quantum Template}
+\author{}
 
 \begin{document}
 
 \maketitle
 
-The standard way to use files produced by TikZiT is to place the \texttt{.tikz} files in the \texttt{figures} subdirectory, and include them via the \texttt{\textbackslash{}tikzfig} macro provided by \texttt{tikzit.sty}. This is essentially a wrapper for \texttt{\textbackslash{}input}. This macro expects the filename without an extension or \texttt{figures/}, so e.g. \texttt{\textbackslash{}tikzfig\{circ\}} will input the file \texttt{figures/circ.tikz}. You can also use \texttt{\textbackslash{}ctikzfig} as a shorthand for \texttt{\textbackslash{}tikzfig} wrapped in the \texttt{center} environment.
+The standard way to use files produced by TikZiT is to place the \texttt{.tikz} files in the \texttt{figures} subdirectory, and include them via the \texttt{\textbackslash{}tikzfig} macro provided by \texttt{tikzit.sty}. This is essentially a wrapper for \texttt{\textbackslash{}input}. This macro expects the filename without an extension or \texttt{figures/}, so e.g. \texttt{\textbackslash{}tikzfig\{circ\}} will input the file \texttt{figures/circ.tikz}. You can also use \texttt{\textbackslash{}ctikzfig} as a shorthand for \texttt{\textbackslash{}tikzfig} wrapped in the \texttt{center} environment. For everything else you ever wanted to know about TikZiT and \texttt{tikzit.sty}, check out:
 
-This quantum template contains TikZ styles to make quantum circuits:
-\ctikzfig{circ}
-ZX-diagrams:
-\ctikzfig{zx}
-and other handy stuff, like the Bloch sphere:
-\ctikzfig{bloch}
+\begin{center}
+  \url{https://tikzit.github.io}.
+\end{center}
+
+\section*{Loading styles in TikZiT}
+
+Before you open one of the example figures in TikZiT, make sure you load the \texttt{.tikzstyles} file included in this directory. You can do that by clicking the icon that looks like a folder near the top-right of the main TikZiT window. This will give you a handful of styles to start with, and ensure that when you preview figures in TikZiT, they look the same as they do in this paper.
+
+\section*{Using pre-built figures}
+
+By passing the \texttt{[draft]} option to \texttt{tikzit.sty}, figures can now be pre-built using the included \texttt{Rakefile}, or any other way you like. This can substantially reduce build time if you have lots of figures. With the \texttt{draft} option active, \texttt{\textbackslash{}tikzfig\{FOO\}} will first search for a file called \texttt{cache/FOO.pdf} and include that before trying to build the tikz figure. To use the included build script, you'll need \texttt{rake} (\url{https://github.com/ruby/rake}). Then, you can pre-build simply by running \texttt{rake} in from the command line in the same directory as this paper. You can also listen for changes and rebuild figures on-demand with \texttt{rake listen}. If you change the name of the main file or add more tex files to your project, edit the appropriate options at the top of the included \texttt{Rakefile}.
+
+\section*{The quantum template}
+
+This quantum template contains TikZ styles to make quantum circuits, ZX-calculus diagrams, and other handy stuff like the Bloch sphere:
+\[
+\tikzfig{circ} \quad
+\tikzfig{zx}
+\tikzfig{bloch}
+\]
 
 \end{document}

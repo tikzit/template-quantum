@@ -52,7 +52,7 @@ end
 task :listen do
   listener = Listen.to("./figures") do
     puts "Rebuilding figures..."
-    t = Rake::Task["all"]
+    t = Rake::Task["default"]
     t.invoke
     t.reenable
     t.all_prerequisite_tasks.each { |t1| t1.reenable }
@@ -85,6 +85,7 @@ tikzfiles.each do |fig|
     \\PreviewEnvironment{tikzpicture}
 
     \\begin{document}
+    \\tikzstyle{every picture}=[tikzfig]
     \\input{../figures/#{fig}.tikz}
     \\end{document}
     TEX

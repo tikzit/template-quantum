@@ -1,6 +1,11 @@
-\usepackage{tikz}
-\usepackage{graphicx}
-\usepackage{graphbox}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{tikzit}[2021/06/02 TikZiT Helper Package]
+\RequirePackage{tikz}
+\RequirePackage{graphicx}
+\RequirePackage{graphbox}
+\DeclareOption{draft}{\def\tikzitdraft{1}}
+\ProcessOptions\relax
+
 \usetikzlibrary{backgrounds}
 \usetikzlibrary{arrows}
 \usetikzlibrary{shapes,shapes.geometric,shapes.misc}
@@ -8,7 +13,7 @@
 \usetikzlibrary{decorations.pathreplacing}
 \usetikzlibrary{decorations.markings}
 
-\tikzstyle{every picture}=[baseline=-0.25em,scale=0.5]
+\tikzstyle{tikzfig}=[baseline=-0.25em,scale=0.5]
 
 \pgfkeys{/tikz/tikzit fill/.initial=0}
 \pgfkeys{/tikz/tikzit draw/.initial=0}
@@ -20,12 +25,12 @@
     \IfFileExists{./cache/#1.pdf}
     {\includegraphics[scale=1,align=c]{./cache/#1.pdf}}
     {\IfFileExists{./figures/#1.tikz}
-     {\input{./figures/#1.tikz}}
-     {\tikz[baseline=-0.5em]{\node[draw=red,font=\color{red},fill=red!10!white] {\textit{#1}};}}}%
+      {{\tikzstyle{every picture}=[tikzfig]\input{./figures/#1.tikz}}}
+      {\tikz[baseline=-0.5em]{\node[draw=red,font=\color{red},fill=red!10!white] {\textit{#1}};}}}%
   \else%
     \IfFileExists{./figures/#1.tikz}
-    {\input{./figures/#1.tikz}}
-    {\tikz[baseline=-0.5em]{\node[draw=red,font=\color{red},fill=red!10!white] {\textit{#1}};}}%
+      {{\tikzstyle{every picture}=[tikzfig]\input{./figures/#1.tikz}}}
+      {\tikz[baseline=-0.5em]{\node[draw=red,font=\color{red},fill=red!10!white] {\textit{#1}};}}%
   \fi%
 }
 \newcommand{\ctikzfig}[1]{%

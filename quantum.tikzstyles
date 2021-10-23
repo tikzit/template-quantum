@@ -22,6 +22,14 @@
 \tikzstyle{scalar}=[shape=rectangle, text height=1.5ex, text depth=0.25ex, yshift=0.5mm, fill=white, draw=black, minimum height=5mm, yshift=-0.5mm, minimum width=5mm, font={\small}]
 \tikzstyle{clabel}=[fill=white, draw=none, shape=rectangle, tikzit fill={rgb,255: red,56; green,255; blue,242}, font={\footnotesize}, inner sep=1pt, tikzit category=labels]
 \tikzstyle{empty diagram}=[draw={gray!40!white}, dashed, shape=rectangle, minimum width=1cm, minimum height=1cm, tikzit category=misc]
+\tikzstyle{amap}=[fill=white, draw=black, shape=NEbox, tikzit category=asymmetric, tikzit fill=yellow, tikzit shape=rectangle]
+\tikzstyle{amap conj}=[fill=white, draw=black, shape=NWbox, tikzit category=asymmetric, tikzit fill=green, tikzit shape=rectangle]
+\tikzstyle{amap adj}=[fill=white, draw=black, shape=SEbox, tikzit category=asymmetric, tikzit fill=red, tikzit shape=rectangle]
+\tikzstyle{amap trans}=[fill=white, draw=black, shape=SWbox, tikzit category=asymmetric, tikzit fill=orange, tikzit shape=rectangle]
+\tikzstyle{astate}=[fill=white, draw=black, shape=NEtriangle, tikzit category=asymmetric, tikzit shape=circle, tikzit fill=yellow]
+\tikzstyle{astate conj}=[fill=white, draw=black, shape=NWtriangle, tikzit category=asymmetric, tikzit shape=circle, tikzit fill=green]
+\tikzstyle{astate adj}=[fill=white, draw=black, shape=SEtriangle, tikzit category=asymmetric, tikzit shape=circle, tikzit fill=red]
+\tikzstyle{astate trans}=[fill=white, draw=black, shape=SWtriangle, tikzit category=asymmetric, tikzit shape=circle, tikzit fill=orange]
 
 % Edge styles
 \tikzstyle{hadamard edge}=[-, dashed, dash pattern=on 2pt off 0.5pt, thick, draw={rgb,255: red,68; green,136; blue,255}]
@@ -32,3 +40,4 @@
 \tikzstyle{gray edge}=[-, {gray!60!white}]
 \tikzstyle{pointer edge}=[->, very thick, gray]
 \tikzstyle{boldedge}=[-, line width=1.6pt, shorten <=-0.17mm, shorten >=-0.17mm]
+\tikzstyle{bidir edge}=[<->, very thick, draw={rgb,255: red,191; green,191; blue,191}]

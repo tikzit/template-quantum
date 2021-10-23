@@ -1,0 +1,36 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=astate] (0) at (-2.5, 2.5) {$\psi$};
+		\node [style=none] (2) at (-2.5, 3.5) {};
+		\node [style=astate conj] (3) at (2.5, 2.5) {$\psi$};
+		\node [style=none] (5) at (2.5, 3.5) {};
+		\node [style=astate adj] (6) at (-2.5, -2.5) {$\psi$};
+		\node [style=none] (7) at (-2.5, -3.5) {};
+		\node [style=astate trans] (9) at (2.5, -2.5) {$\psi$};
+		\node [style=none] (10) at (2.5, -3.5) {};
+		\node [style=none] (12) at (2.5, 1) {};
+		\node [style=none] (13) at (2.5, -1) {};
+		\node [style=none] (14) at (-2.5, 1) {};
+		\node [style=none] (15) at (-2.5, -1) {};
+		\node [style=none] (16) at (-1, 1) {};
+		\node [style=none] (17) at (1, -1) {};
+		\node [style=none] (18) at (1, 1) {};
+		\node [style=none] (19) at (-1, -1) {};
+		\node [style=none] (20) at (1, 2.5) {};
+		\node [style=none] (21) at (-1, 2.5) {};
+		\node [style=none] (22) at (1, -2.5) {};
+		\node [style=none] (23) at (-1, -2.5) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (0) to (2.center);
+		\draw (3) to (5.center);
+		\draw (7.center) to (6);
+		\draw (10.center) to (9);
+		\draw [style=bidir edge] (12.center) to (13.center);
+		\draw [style=bidir edge] (14.center) to (15.center);
+		\draw [style=bidir edge] (16.center) to (17.center);
+		\draw [style=bidir edge] (18.center) to (19.center);
+		\draw [style=bidir edge] (20.center) to (21.center);
+		\draw [style=bidir edge] (22.center) to (23.center);
+	\end{pgfonlayer}
+\end{tikzpicture}

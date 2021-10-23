@@ -17,7 +17,7 @@
 The standard way to use files produced by TikZiT is to place the \texttt{.tikz} files in the \texttt{figures} subdirectory, and include them via the \texttt{\textbackslash{}tikzfig} macro provided by \texttt{tikzit.sty}. This is essentially a wrapper for \texttt{\textbackslash{}input}. This macro expects the filename without an extension or \texttt{figures/}, so e.g. \texttt{\textbackslash{}tikzfig\{circ\}} will input the file \texttt{figures/circ.tikz}. You can also use \texttt{\textbackslash{}ctikzfig} as a shorthand for \texttt{\textbackslash{}tikzfig} wrapped in the \texttt{center} environment. For everything else you ever wanted to know about TikZiT and \texttt{tikzit.sty}, check out:
 
 \begin{center}
-  \url{https://tikzit.github.io}.
+  \color{blue} \url{https://tikzit.github.io}.
 \end{center}
 
 \section*{Loading styles in TikZiT}
@@ -36,5 +36,20 @@ This template contains styles for quantum circuits, ZX-calculus diagrams, and ha
 \tikzfig{zx}
 \tikzfig{bloch}
 \]
+
+\section*{Asymmetric shapes}
+
+This template also provides various asymmetric shapes that are used in the book \href{http://cambridge.org/PQP}{\color{blue} \textit{Picturing Quantum Processes: A First Course in Quantum Theory and Diagrammatic Reasoning}} to represent the adjoints, transposes, and conjugates of states or maps.
+\[
+  \tikzfig{asym-states}
+  \qquad\qquad\qquad\qquad
+  \tikzfig{asym-maps}
+\]
+
+These shapes are defined by hand using PGF code in \texttt{quantum.tikzdefs}. For maps, the shapes are called \texttt{NWbox}, \texttt{NEbox}, \texttt{SWbox}, and \texttt{SEbox}. The directions NW, NE, SW, and SE indicate which way the asymmetric part of the box ``points''. Similarly, the shapes for states are called \texttt{NWtriangle}, \texttt{NEtriangle}, \texttt{SWtriangle}, and \texttt{SEtriangle}.
+
+To use these shapes, you should create a style and set the \texttt{shape} property to be one of the above. There are already example styles using all of these shapes defined in \texttt{quantum.tikzstyles}.
+
+Note that TikZiT doesn't recognise custom shapes in the GUI. In practice, this isn't such a problem. The way I get around this is to use certain properties that only affect how a node appears in TikZiT (e.g. \texttt{tikzit shape} and \texttt{tikzit fill}) to visually distinguish styles using different custom shapes. For example, the styles used in the pictures above are colour-coded in TikZiT. The custom shapes will nevertheless draw propertly when using TikZiT's ``Preview'' feature.
 
 \end{document}

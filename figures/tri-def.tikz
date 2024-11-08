@@ -1,0 +1,30 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=tri] (0) at (-7, 0) {};
+		\node [style=none] (1) at (-8, 0) {};
+		\node [style=none] (2) at (-6, 0) {};
+		\node [style=none] (3) at (-5, 0) {$=$};
+		\node [style=none] (5) at (-4, 0) {};
+		\node [style=none] (6) at (-1, 0) {};
+		\node [style=X phase dot] (7) at (-3, 0) {$\pi$};
+		\node [style=hadamard] (8) at (-2, 0) {};
+		\node [style=Z dot] (9) at (-2, -1) {};
+		\node [style=tri left] (10) at (2, 0) {};
+		\node [style=none] (11) at (1, 0) {};
+		\node [style=none] (12) at (3, 0) {};
+		\node [style=none] (13) at (4, 0) {$=$};
+		\node [style=none] (14) at (5, 0) {};
+		\node [style=none] (15) at (8, 0) {};
+		\node [style=X phase dot] (16) at (7, 0) {$\pi$};
+		\node [style=hadamard] (17) at (6, 0) {};
+		\node [style=Z dot] (18) at (6, -1) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (1.center) to (2.center);
+		\draw (5.center) to (6.center);
+		\draw (9) to (8);
+		\draw (11.center) to (12.center);
+		\draw (14.center) to (15.center);
+		\draw (18) to (17);
+	\end{pgfonlayer}
+\end{tikzpicture}

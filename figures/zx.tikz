@@ -11,7 +11,7 @@
 		\node [style=hadamard] (28) at (0, 0.5) {};
 		\node [style=Z phase dot] (29) at (1.25, -1.5) {$b\pi$};
 		\node [style=X phase dot] (30) at (2.75, -1.5) {$a\pi$};
-		\node [style=none] (35) at (4.25, -0.5) {};
+		\node [style=none] (35) at (4.5, -0.5) {};
 		\node [style=none] (36) at (-4.5, -0.5) {};
 		\node [style=none] (37) at (-3.75, 1.375) {Alice};
 		\node [style=none] (38) at (-3.75, -1.5) {Bob};

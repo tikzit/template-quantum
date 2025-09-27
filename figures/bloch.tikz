@@ -1,6 +1,6 @@
-\begin{tikzpicture}[scale=1.4]
+\begin{tikzpicture}
 	\begin{pgfonlayer}{nodelayer}
-		\node [style=none] (0) at (4, 1) {$|\psi\>$};
+		\node [style=none] (0) at (4, 1) {$|\psi\rangle$};
 		\node [style=none] (2) at (0, 3) {};
 		\node [style=none] (3) at (0, -3) {};
 		\node [style=none] (4) at (2.75, 1.25) {};

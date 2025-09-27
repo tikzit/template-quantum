@@ -3,7 +3,7 @@
 \tikzstyle{Z dot}=[inner sep=0mm, minimum size=2mm, shape=circle, draw=black, fill={rgb,255: red,221; green,255; blue,221}, tikzit category=zx]
 \tikzstyle{Z phase dot}=[minimum size=5mm, font={\footnotesize\boldmath}, shape=rectangle, rounded corners=2mm, inner sep=0.2mm, outer sep=-2mm, scale=0.8, tikzit shape=circle, draw=black, fill={rgb,255: red,221; green,255; blue,221}, tikzit draw=blue, tikzit category=zx]
 \tikzstyle{X dot}=[Z dot, shape=circle, draw=black, fill={rgb,255: red,255; green,136; blue,136}, tikzit category=zx]
-\tikzstyle{X phase dot}=[Z phase dot, tikzit shape=circle, tikzit draw=blue, fill={rgb,255: red,255; green,136; blue,136}, font={\footnotesize\boldmath}, tikzit category=zx]
+\tikzstyle{X phase dot}=[Z phase dot, tikzit shape=circle, draw=black, tikzit draw=blue, fill={rgb,255: red,255; green,136; blue,136}, font={\footnotesize\boldmath}, tikzit category=zx]
 \tikzstyle{hadamard}=[fill=yellow, draw=black, shape=rectangle, inner sep=0.6mm, minimum height=1.5mm, minimum width=1.5mm, tikzit category=zx]
 \tikzstyle{paulibox}=[fill={rgb,255: red,221; green,221; blue,255}, draw=black, shape=rectangle, inner sep=0.6mm, minimum height=5mm, minimum width=5mm, font={\footnotesize}, text height=1.5ex, text depth=0.25ex, tikzit category=zx]
 \tikzstyle{vertex}=[inner sep=0mm, minimum size=1mm, shape=circle, draw=black, fill=black, tikzit category=misc]
